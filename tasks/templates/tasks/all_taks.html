@@ -1,0 +1,41 @@
+{% extends "tasks/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    {% block content %}
+    <center>
+        <table border = 1; width = 80%; height = 100px>
+            
+            <th bgcolor="#E29607 ", colspan="5"><center> <h3>Table Tasks Of all Users</h3></center></th>
+            <tr bgcolor="gold">
+                <td > <center> <h4>Full Name</h4> </center> </td>
+                <td > <center> <h4>Title</h4> </center> </td>
+                <td> <center> <h4>Due_date</h4> </center></td>
+                <td> <center> <h4>Status</h4> </center>  </td>
+                <td> <center> <h4>Created at</h4> </center></td> 
+
+            </tr>
+            <tr>
+            {% for task in all_tasks %}
+            
+                <td bgcolor="#6AE708"> <center><h5>{{task.owner}}</h5> </center> </td>
+                <td bgcolor="#6AE708"> <center><h5> {{ task.title }}</h5> </center> </td>
+                <td bgcolor="#6AE708"> <center><h5> {{ task.due_date }} </center> </h5>  </td>
+                <td bgcolor="#6AE708"> <center><h5> {{ task.preority }} </center> </h5> </td>
+                <td bgcolor="#6AE708"> <center><h5>  {{ task.created_at }} </center> </h5> </td>
+            </tr> 
+            {% endfor %}    
+            
+        </table>
+    </center>
+    {% endblock content %}
+</body>
+
+</html>
